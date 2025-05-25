@@ -72,5 +72,8 @@ public class LoginPageTest extends TestBase{
 	}
 	
 	
-	
+	public void logintestdemo()
+	{
+		System.out.println("FRom loginpage");
+	}
 }
