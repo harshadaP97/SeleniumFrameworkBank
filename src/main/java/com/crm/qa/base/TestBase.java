@@ -46,10 +46,10 @@ public class TestBase {
             WebDriverManager.chromedriver().setup();
 
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new"); // Headless mode for Jenkins
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--remote-allow-origins=*");
+          //  options.addArguments("--headless=new"); // Headless mode for Jenkins
+           // options.addArguments("--no-sandbox");
+           // options.addArguments("--disable-dev-shm-usage");
+            //options.addArguments("--remote-allow-origins=*");
 
             driver = new ChromeDriver(options);
         } else if (bName.equalsIgnoreCase("FF")) {

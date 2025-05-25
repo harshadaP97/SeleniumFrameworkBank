@@ -33,7 +33,7 @@ public class LoginPageTest extends TestBase{
 		loginPage=new LoginPage();
 	}
 	
-	@Test(enabled=false)
+	@Test()
 	public void validateLogin()
 	{
 		homePage= loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
