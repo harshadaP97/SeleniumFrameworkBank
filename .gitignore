@@ -1,0 +1,11 @@
+/target/
+# Ignore build/test folders
+target/
+test-output/
+screenshots/
+
+# Ignore IDE-specific and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store

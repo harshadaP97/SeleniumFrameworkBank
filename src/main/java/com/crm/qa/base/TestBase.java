@@ -16,15 +16,17 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
 import com.crm.qa.util.TestUtil;
-
 
 public class TestBase {
 
+    // WebDriver instance used across tests
     public static WebDriver driver;
+
+    // Properties object to load config data
     public static Properties prop;
 
+    // Constructor to load configuration properties from file
     public TestBase() {
         try {
             prop = new Properties();
@@ -39,32 +41,30 @@ public class TestBase {
         }
     }
 
+    // Initialize WebDriver based on browser specified in properties
     public static void init() {
         String bName = prop.getProperty("browser");
 
         if (bName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-
             ChromeOptions options = new ChromeOptions();
-          //  options.addArguments("--headless=new"); // Headless mode for Jenkins
-           // options.addArguments("--no-sandbox");
-           // options.addArguments("--disable-dev-shm-usage");
-            //options.addArguments("--remote-allow-origins=*");
-
             driver = new ChromeDriver(options);
         } else if (bName.equalsIgnoreCase("FF")) {
             WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver(); // You can add FirefoxOptions similarly
+            driver = new FirefoxDriver(); // FirefoxOptions can be added similarly
         }
 
+        // Set up browser window and timeouts
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.page_load_timeout, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(TestUtil.implicit_wait, TimeUnit.SECONDS);
 
+        // Navigate to the URL from config
         driver.get(prop.getProperty("url"));
     }
 
+    // Tear down method to quit driver and capture screenshot on test failure
     @AfterMethod
     public void tearDown(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {

@@ -1,7 +1,6 @@
 package com.crm.qa.test;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,26 +15,23 @@ public class OpenNewAccountPageTest extends TestBase {
 	HomePage homePage;
 	OpenNewAccountPage openNew;
 	
-	public OpenNewAccountPageTest()
-	{
+	// Constructor to load properties from TestBase
+	public OpenNewAccountPageTest() {
 		super();
 	}
 	
+	// Setup method to initialize browser and navigate to Open New Account page before each test
 	@BeforeMethod
-	public void setUp()
-	{
+	public void setUp() {
 		init();
-		
-		loginPage=new LoginPage();
-		homePage = loginPage.validateLogin(prop.getProperty("username"),prop.getProperty("password"));
+		loginPage = new LoginPage();
+		homePage = loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
 		openNew = homePage.gotoOpenNewAccount();
-		
 	}
 	
+	// Test to verify the Open New Account page title
 	@Test
-	public void validateOpenAccountPage()
-	{
-		
+	public void validateOpenAccountPage() {
 		Assert.assertEquals("Open New Account", openNew.validateopenAccountPage());
 	}
 	
