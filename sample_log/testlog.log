@@ -1,0 +1,23 @@
+2025-07-10 14:39:11 INFO  [LoginPageTest] 80 - Register New User
+2025-07-10 14:39:14 INFO  [LoginPageTest] 85 - User Dimple created successfully
+2025-07-10 14:39:18 INFO  [LoginPageTest] 80 - Register New User
+2025-07-10 14:39:20 INFO  [LoginPageTest] 85 - User Maxwell created successfully
+2025-07-10 14:39:24 INFO  [LoginPageTest] 62 - Go to Registrtation Page
+2025-07-10 14:39:24 INFO  [LoginPageTest] 65 - Landed successfully on Register Page
+2025-07-10 14:39:28 INFO  [LoginPageTest] 42 - Login Test Started
+2025-07-10 14:39:29 INFO  [LoginPageTest] 45 - Login successfully with harshadap 
+2025-07-10 14:39:34 INFO  [LoginPageTest] 52 - Login Page validation started
+2025-07-10 14:39:39 INFO  [OpenNewAccountPageTest] 37 - Validate Open Account Page
+2025-07-10 14:39:39 INFO  [OpenNewAccountPageTest] 39 - Successfully landed on Open Account Page
+2025-07-10 14:39:44 INFO  [HomePageTest] 36 - Validate Logout
+2025-07-10 14:39:44 INFO  [HomePageTest] 40 - Logout Successfully
+2025-07-10 14:39:45 DEBUG [cache] Couldn't find template in cache for "Extent.ftl"("en_IN", UTF-8, parsed); will try to load it.
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent_en_IN.ftl"): Not found
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2025-07-10 14:39:45 DEBUG [cache] Loading template for "Extent.ftl"("en_IN", UTF-8, parsed) from "jar:file:/C:/Users/Giriraj%20Pawar/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
+2025-07-10 14:39:45 DEBUG [cache] Couldn't find template in cache for "Extent.ftl"("en_IN", UTF-8, parsed); will try to load it.
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent_en_IN.ftl"): Not found
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+2025-07-10 14:39:45 DEBUG [cache] TemplateLoader.findTemplateSource("Extent.ftl"): Found
+2025-07-10 14:39:45 DEBUG [cache] Loading template for "Extent.ftl"("en_IN", UTF-8, parsed) from "jar:file:/C:/Users/Giriraj%20Pawar/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
