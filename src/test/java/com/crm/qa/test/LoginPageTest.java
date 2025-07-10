@@ -1,6 +1,8 @@
 package com.crm.qa.test;
 
 import static org.testng.Assert.assertEquals;
+import com.crm.qa.util.LogUtil;
+
 
 import java.io.IOException;
 
@@ -21,8 +23,6 @@ public class LoginPageTest extends TestBase{
 	
 	LoginPage loginPage;
 	HomePage homePage;
-    Logger log = Logger.getLogger(LoginPage.class);
-
 	
 	// Constructor to initialize properties from TestBase
 	public LoginPageTest() {
@@ -39,22 +39,31 @@ public class LoginPageTest extends TestBase{
 	// Test to validate successful login and verify home page content
 	@Test()
 	public void validateLogin() {
+		LogUtil.logInfo("Login Test Started");
 		homePage = loginPage.validateLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertEquals("Accounts Overview", homePage.validateHomePage());
-        log.info("Login successfully with user: " + prop.getProperty("username"));
+		LogUtil.logInfo("Login successfully with "+prop.getProperty("username"));
 
 	}
 	
 	// Disabled test: validate login page title
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void validateLoginPageTitle() {
-		Assert.assertEquals(loginPage.validatePageTile(), "ParaBank | Welcome | Online Banking");
+		LogUtil.logInfo("Login Page validation started");
+
+		Assert.assertEquals(loginPage.validatePageTile(), "ParaBank | Welcome | Online Bankin");
+		LogUtil.logInfo("I have failed this asseration just to check failed testcases");
+
 	}
 	
 	// Disabled test: validate navigation to register page
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void validateGotoRegister() {
+		LogUtil.logInfo("Go to Registrtation Page");
+
 		Assert.assertEquals(loginPage.gotoRegisterUser(), "Signing up is easy!");
+		LogUtil.logInfo("Landed successfully on Register Page");
+
 	}
 	
 	// DataProvider to fetch user registration data from Excel
@@ -68,9 +77,13 @@ public class LoginPageTest extends TestBase{
 	@Test(dataProvider = "getUserData")
 	public void registerNewUser(String f, String l , String a, String c, String s, String z, String p, 
 			String ssn, String u, String pwds) {
+		LogUtil.logInfo("Register New User");
+
 		loginPage.gotoRegisterUser();
 		String welcomeText = loginPage.registerUser(f, l, a, c, s, z, p, ssn, u, pwds);
 		Assert.assertEquals(welcomeText, "Welcome "+u);
+		LogUtil.logInfo("User "+ f +" created successfully");
+
 	}
 	
 	}

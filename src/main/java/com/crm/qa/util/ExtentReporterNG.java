@@ -2,32 +2,29 @@ package com.crm.qa.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
+import org.testng.*;
 import org.testng.IReporter;
-import org.testng.IResultMap;
-import org.testng.ISuite;
-import org.testng.ISuiteResult;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.*;
 
 public class ExtentReporterNG implements IReporter, ITestListener {
 
     private ExtentReports extent;
+    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-    // Generate the Extent report after all suites finish
-    @Override
+    // ------------------ Extent Report Generation ------------------
+
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-        extent = new ExtentReports(outputDirectory + File.separator + "Extent.html", true);
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String reportDir = outputDirectory + File.separator + "Reports";
+        new File(reportDir).mkdirs();
+
+        String reportPath = reportDir + File.separator + "ExtentReport_" + timeStamp + ".html";
+        extent = new ExtentReports(reportPath, true);
 
         for (ISuite suite : suites) {
             Map<String, ISuiteResult> result = suite.getResults();
@@ -45,7 +42,6 @@ public class ExtentReporterNG implements IReporter, ITestListener {
         extent.close();
     }
 
-    // Add individual test results to report
     private void buildTestNodes(IResultMap tests, LogStatus status) {
         if (tests.size() > 0) {
             for (ITestResult result : tests.getAllResults()) {
@@ -58,10 +54,17 @@ public class ExtentReporterNG implements IReporter, ITestListener {
                     test.assignCategory(group);
                 }
 
-                if (result.getThrowable() != null) {
+                Object screenshotPathObj = result.getAttribute("screenshotPath");
+                if (status == LogStatus.FAIL && screenshotPathObj != null) {
+                    String screenshotPath = screenshotPathObj.toString();
                     test.log(status, result.getThrowable());
+                    test.log(status, "Screenshot below: " + test.addScreenCapture(screenshotPath));
                 } else {
-                    test.log(status, "Test " + status.toString().toLowerCase() + "ed");
+                    if (result.getThrowable() != null) {
+                        test.log(status, result.getThrowable());
+                    } else {
+                        test.log(status, "Test " + status.toString().toLowerCase() + "ed");
+                    }
                 }
 
                 extent.endTest(test);
@@ -69,7 +72,6 @@ public class ExtentReporterNG implements IReporter, ITestListener {
         }
     }
 
-    // Convert milliseconds to Date
     private Date getTime(long millis) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(millis);
@@ -91,9 +93,9 @@ public class ExtentReporterNG implements IReporter, ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("❌ Test Failed: " + result.getName());
-
         try {
             String screenshotPath = TestUtil.takeScreenshotAtEndOfTest();
+            result.setAttribute("screenshotPath", screenshotPath);
             System.out.println("📸 Screenshot captured: " + screenshotPath);
         } catch (IOException e) {
             e.printStackTrace();

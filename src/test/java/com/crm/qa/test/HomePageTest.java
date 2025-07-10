@@ -9,6 +9,7 @@ import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.OpenNewAccountPage;
+import com.crm.qa.util.LogUtil;
 
 public class HomePageTest extends TestBase {
 
@@ -32,14 +33,14 @@ public class HomePageTest extends TestBase {
     // Test logout functionality and verify page title after logout
     @Test
     public void validateLogout() {
+		LogUtil.logInfo("Validate Logout");
+
         loginPage = homePage.validateLogout();
         Assert.assertEquals("ParaBank | Welcome | Online Banking", loginPage.validatePageTile());
+		LogUtil.logInfo("Logout Successfully");
+
     }
 
-    // Test navigation to Open New Account page
-    @Test
-    public void validateGotoNewAccount() {
-        openNew = homePage.gotoOpenNewAccount();
-    }
+   
 
 }

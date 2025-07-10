@@ -1,11 +1,28 @@
+# Ignore build outputs
 /target/
-# Ignore build/test folders
-target/
-test-output/
-screenshots/
+/build/
 
-# Ignore IDE-specific and OS files
-.idea/
-.vscode/
-*.iml
+# Ignore logs and screenshots
+/logs/
+/Logs/
+/screenshots/
+
+# Ignore extent reports (generated)
+/Reports/
+/reports/
+
+# Ignore logs folder with date (you can ignore all Logs* folders)
+Logs_*/
+
+# Ignore TestNG test-output folder
+test-output/
+
+
+# IDE files
+/.idea/
+/*.iml
+/.vscode/
+
+# OS files
 .DS_Store
+Thumbs.db
