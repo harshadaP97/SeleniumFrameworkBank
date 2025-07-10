@@ -36,16 +36,14 @@ SeleniumFrameworkBank/
    cd SeleniumFrameworkBank
    mvn clean test
    
-Check logs — runs are saved under Logs_<today>/Log_<timestamp>/testlog_…
+Check logs — runs are saved under 
+Logs_<today>/Log_<timestamp>/testlog_…
 
-Check reports — ExtentReports generated in test-output/Reports/
+Check reports — ExtentReports generated at
+test-output/Reports/
 
 📊 Sample Extent Report & Screenshot
 Get a professional summary of test results — performance, pass/fail stats, and failure traces with screenshots:
-
-
-<sub>‡ This is a mockup—your report will show real project details.</sub>
-
 💡 Example:
 Scenario	Outcome	
 Valid login test	✅ PASS
@@ -61,10 +59,10 @@ Daily & run-wise folder separation
 Relevant warnings, errors, and debug traceability
 
 👩‍💻 About
-Harshada Patil — QA Engineer | MSc Applied Computer Science & AI
-🔗 https://www.linkedin.com/in/harshadapatil97
+Harshada Patil — QA Engineer | MSc in Applied Computer Science & AI
+🔗 LinkedIn
 
-Build robust, maintainable automation frameworks and delight teams with professional reports and logs!
+🚀 Build robust, maintainable automation frameworks and delight your team with professional reports and logs!
 
 
 
