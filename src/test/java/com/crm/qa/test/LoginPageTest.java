@@ -51,8 +51,7 @@ public class LoginPageTest extends TestBase{
 	public void validateLoginPageTitle() {
 		LogUtil.logInfo("Login Page validation started");
 
-		Assert.assertEquals(loginPage.validatePageTile(), "ParaBank | Welcome | Online Bankin");
-		LogUtil.logInfo("I have failed this asseration just to check failed testcases");
+		Assert.assertEquals(loginPage.validatePageTile(), "ParaBank | Welcome | Online Banking");
 
 	}
 	
