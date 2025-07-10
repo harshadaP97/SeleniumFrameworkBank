@@ -48,15 +48,17 @@ Get a professional summary of test results — performance, pass/fail stats, and
 Scenario	Outcome	
 Valid login test	✅ PASS
 Invalid login test	❌ FAIL
+Check the sample in sample_img folder
 
 🛠 Logging via Log4j
-Your framework uses LogUtil.logInfo(...) to log key actions:
 LogUtil.logInfo("Navigating to login page");
 LogUtil.logError("Login failed for invalid credentials");
 Logs include:
 Precise class name & line number
 Daily & run-wise folder separation
 Relevant warnings, errors, and debug traceability
+Check the sample in sample_log folder
+
 
 👩‍💻 About
 Harshada Patil — QA Engineer | MSc in Applied Computer Science & AI
