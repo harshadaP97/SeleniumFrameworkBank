@@ -40,14 +40,6 @@ public class HomePageTest extends TestBase {
     @Test
     public void validateGotoNewAccount() {
         openNew = homePage.gotoOpenNewAccount();
-        // Optionally add assertion to verify navigation if needed
     }
 
-    // Optional teardown method if you want to close browser after each test
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }

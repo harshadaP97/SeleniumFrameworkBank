@@ -73,8 +73,4 @@ public class LoginPageTest extends TestBase{
 		Assert.assertEquals(welcomeText, "Welcome "+u);
 	}
 	
-	// Demo method (can be removed or used for testing purpose)
-	public void logintestdemo() {
-		System.out.println("From loginpage");
 	}
-}
