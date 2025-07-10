@@ -57,7 +57,7 @@ Logs include:
 Precise class name & line number
 Daily & run-wise folder separation
 Relevant warnings, errors, and debug traceability
-Check the sample in sample_log folder
+Check the sample in sample_log folder. Sample Log4j output showing successful execution of core test cases (registration, login, open account, logout).
 
 
 👩‍💻 About
