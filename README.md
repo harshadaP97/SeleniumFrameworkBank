@@ -62,9 +62,15 @@ Check the sample in sample_log folder. Sample Log4j output showing successful ex
 
 👩‍💻 About
 Harshada Patil — QA Engineer | MSc in Applied Computer Science & AI
-🔗 LinkedIn
 
 🚀 Build robust, maintainable automation frameworks and delight your team with professional reports and logs!
+
+### ⚠️ Disclaimer  
+This project is part of my personal QA portfolio, created to demonstrate my skills and experience.  
+Please do not reuse or distribute without permission.  
+**Authored by Harshada Patil**
+
+
 
 
 
